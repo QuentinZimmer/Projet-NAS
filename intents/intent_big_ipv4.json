@@ -1,0 +1,237 @@
+{
+  "meta": {
+    "project": "Network Automation - BIG IPv4",
+    "ip_version": 4,
+    "description": "Core MPLS with OSPF-IGP and eBGP to CE"
+  },
+
+  "ases": {
+    "64500": {
+      "igp": {
+        "type": "ospf",
+        "process_id": 1,
+        "area": 0
+      },
+      "ip_pools": {
+        "loopbacks": "10.0.0.0/24"
+      },
+      "routers": ["R1", "R2", "R3", "R4"]
+    },
+    "65001": {
+      "igp": {
+        "type": "none"
+      },
+      "ip_pools": {
+        "loopbacks": "192.168.1.0/24"
+      },
+      "routers": ["R5"]
+    },
+    "65002": {
+      "igp": {
+        "type": "none"
+      },
+      "ip_pools": {
+        "loopbacks": "192.168.2.0/24"
+      },
+      "routers": ["R6"]
+    },
+    "65003": {
+      "igp": {
+        "type": "none"
+      },
+      "ip_pools": {
+        "loopbacks": "192.168.3.0/24"
+      },
+      "routers": ["R7"]
+    },
+    "65004": {
+      "igp": {
+        "type": "none"
+      },
+      "ip_pools": {
+        "loopbacks": "192.168.4.0/24"
+      },
+      "routers": ["R8"]
+    }
+  },
+
+  "routers": {
+    "R1": {
+      "as": "64500",
+      "router_id": "1.1.1.1",
+      "role": "PE"
+    },
+    "R2": {
+      "as": "64500",
+      "router_id": "2.2.2.2",
+      "role": "P"
+    },
+    "R3": {
+      "as": "64500",
+      "router_id": "3.3.3.3",
+      "role": "P"
+    },
+    "R4": {
+      "as": "64500",
+      "router_id": "4.4.4.4",
+      "role": "PE"
+    },
+    "R5": {
+      "as": "65001",
+      "router_id": "5.5.5.5",
+      "role": "CE"
+    },
+    "R6": {
+      "as": "65002",
+      "router_id": "6.6.6.6",
+      "role": "CE"
+    },
+    "R7": {
+      "as": "65003",
+      "router_id": "7.7.7.7",
+      "role": "CE"
+    },
+    "R8": {
+      "as": "65004",
+      "router_id": "8.8.8.8",
+      "role": "CE"
+    }
+  },
+
+  "links": [
+    {
+      "name": "CORE_R1_R2",
+      "type": "intra_as",
+      "as": "64500",
+      "subnet": "145.0.1.0/24",
+      "endpoints": [
+        {
+          "router": "R1",
+          "interface": "GigabitEthernet1/0"
+        },
+        {
+          "router": "R2",
+          "interface": "GigabitEthernet1/0"
+        }
+      ]
+    },
+    {
+      "name": "CORE_R2_R3",
+      "type": "intra_as",
+      "as": "64500",
+      "subnet": "145.0.2.0/24",
+      "endpoints": [
+        {
+          "router": "R2",
+          "interface": "GigabitEthernet2/0"
+        },
+        {
+          "router": "R3",
+          "interface": "GigabitEthernet1/0"
+        }
+      ]
+    },
+    {
+      "name": "CORE_R3_R4",
+      "type": "intra_as",
+      "as": "64500",
+      "subnet": "145.0.3.0/24",
+      "endpoints": [
+        {
+          "router": "R3",
+          "interface": "GigabitEthernet2/0"
+        },
+        {
+          "router": "R4",
+          "interface": "GigabitEthernet1/0"
+        }
+      ]
+    },
+    {
+      "name": "EBGP_R1_R6",
+      "type": "inter_as",
+      "subnet": "145.0.4.0/24",
+      "endpoints": [
+        {
+          "router": "R1",
+          "interface": "GigabitEthernet2/0"
+        },
+        {
+          "router": "R6",
+          "interface": "GigabitEthernet1/0"
+        }
+      ]
+    },
+    {
+      "name": "EBGP_R4_R5",
+      "type": "inter_as",
+      "subnet": "145.0.5.0/24",
+      "endpoints": [
+        {
+          "router": "R4",
+          "interface": "GigabitEthernet2/0"
+        },
+        {
+          "router": "R5",
+          "interface": "GigabitEthernet1/0"
+        }
+      ]
+    },
+    {
+      "name": "EBGP_R1_R8",
+      "type": "inter_as",
+      "subnet": "145.0.6.0/24",
+      "endpoints": [
+        {
+          "router": "R1",
+          "interface": "GigabitEthernet3/0"
+        },
+        {
+          "router": "R8",
+          "interface": "GigabitEthernet1/0"
+        }
+      ]
+    },
+    {
+      "name": "EBGP_R4_R7",
+      "type": "inter_as",
+      "subnet": "145.0.7.0/24",
+      "endpoints": [
+        {
+          "router": "R4",
+          "interface": "GigabitEthernet3/0"
+        },
+        {
+          "router": "R7",
+          "interface": "GigabitEthernet1/0"
+        }
+      ]
+    }
+  ],
+
+  "bgp": {
+    "required": true,
+    "ibgp": {
+      "mode": "route_reflector",
+      "route_reflector": "R2",
+      "clients": ["R1", "R3", "R4"]
+    }
+  },
+
+  "vrf": {
+    "CLIENT_A": {
+      "rt": "64500:101",
+      "members": [
+        { "ce": "R6", "rd": "64500:106" },
+        { "ce": "R7", "rd": "64500:107" }
+      ]
+    },
+    "CLIENT_B": {
+      "rt": "64500:102",
+      "members": [
+        { "ce": "R5", "rd": "64500:105" },
+        { "ce": "R8", "rd": "64500:108" }
+      ]
+    }
+  }
+}
