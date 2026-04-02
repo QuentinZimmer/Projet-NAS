@@ -1,0 +1,40 @@
+Mar 25 11:52:49.578 HYPERVISOR: Release 0.2.17-x86/Windows (tag 2017072410)
+Mar 25 11:52:49.580 HYPERVISOR: Started on IP = localhost, TCP port = 57856.
+Mar 25 11:52:50.038 HYPERVISOR: exec_cmd: hypervisor version 
+Mar 25 11:52:50.040 HYPERVISOR: exec_cmd: hypervisor working_dir C:\Users\quent\Documents\INSA\TC\Projet-NASV2\project-files\dynamips 
+Mar 25 11:52:50.040 GENERAL: working_dir=C:\Users\quent\Documents\INSA\TC\Projet-NASV2\project-files\dynamips
+Mar 25 11:52:50.040 HYPERVISOR: exec_cmd: hypervisor working_dir C:\Users\quent\Documents\INSA\TC\Projet-NASV2\project-files\dynamips\9a0e862d-d423-4877-9c7a-1f16bd6cdcd9 
+Mar 25 11:52:50.041 GENERAL: working_dir=C:\Users\quent\Documents\INSA\TC\Projet-NASV2\project-files\dynamips\9a0e862d-d423-4877-9c7a-1f16bd6cdcd9
+Mar 25 11:52:50.041 HYPERVISOR: exec_cmd: vm create R3 3 c7200 
+Mar 25 11:52:50.045 VM: VM R3 created.
+Mar 25 11:52:50.047 HYPERVISOR: exec_cmd: vm set_con_tcp_port R3 5002 
+Mar 25 11:52:50.047 HYPERVISOR: exec_cmd: c7200 get_mac_addr R3 
+Mar 25 11:52:50.049 HYPERVISOR: exec_cmd: vm get_status R3 
+Mar 25 11:52:50.049 HYPERVISOR: exec_cmd: vm slot_add_binding R3 0 0 C7200-IO-FE 
+Mar 25 11:52:50.051 HYPERVISOR: exec_cmd: vm set_disk0 R3 0 
+Mar 25 11:52:50.053 HYPERVISOR: exec_cmd: vm set_exec_area R3 64 
+Mar 25 11:52:50.056 HYPERVISOR: exec_cmd: vm get_status R3 
+Mar 25 11:52:50.058 HYPERVISOR: exec_cmd: vm set_idle_pc R3 0x62cc41e8 
+Mar 25 11:52:50.061 HYPERVISOR: exec_cmd: vm set_ios R3 C:/Users/quent/GNS3/images/IOS/c7200-advipservicesk9-mz.152-4.S5.image 
+Mar 25 11:52:50.061 HYPERVISOR: exec_cmd: c7200 set_mac_addr R3 ca03.48a8.0000 
+Mar 25 11:52:50.063 HYPERVISOR: exec_cmd: vm set_nvram R3 512 
+Mar 25 11:52:50.065 HYPERVISOR: exec_cmd: vm set_ram R3 512 
+Mar 25 11:52:50.067 HYPERVISOR: exec_cmd: vm get_status R3 
+Mar 25 11:52:50.067 HYPERVISOR: exec_cmd: vm slot_add_binding R3 1 0 PA-GE 
+Mar 25 11:52:50.071 HYPERVISOR: exec_cmd: vm get_status R3 
+Mar 25 11:52:50.072 HYPERVISOR: exec_cmd: vm slot_add_binding R3 2 0 PA-GE 
+Mar 25 11:52:50.072 HYPERVISOR: exec_cmd: vm get_status R3 
+Mar 25 11:52:50.076 HYPERVISOR: exec_cmd: vm slot_add_binding R3 3 0 PA-GE 
+Mar 25 11:52:58.930 HYPERVISOR: exec_cmd: nio create_udp udp-bca47e31-df76-4a92-8146-9c38110ab840 10010 127.0.0.1 10011 
+Mar 25 11:52:59.997 HYPERVISOR: exec_cmd: vm slot_add_nio_binding R3 1 0 udp-bca47e31-df76-4a92-8146-9c38110ab840 
+Mar 25 11:52:59.999 HYPERVISOR: exec_cmd: vm get_status R3 
+Mar 25 11:53:00.184 HYPERVISOR: exec_cmd: nio create_udp udp-dac67eda-c4c2-41bc-8aa9-3bff4804e3e3 10014 127.0.0.1 10015 
+Mar 25 11:53:00.210 HYPERVISOR: exec_cmd: vm slot_add_nio_binding R3 2 0 udp-dac67eda-c4c2-41bc-8aa9-3bff4804e3e3 
+Mar 25 11:53:00.212 HYPERVISOR: exec_cmd: vm get_status R3 
+Mar 25 17:39:44.606 HYPERVISOR: exec_cmd: vm get_status R3 
+Mar 25 17:39:44.610 HYPERVISOR: exec_cmd: vm extract_config R3 
+Mar 25 17:39:44.613 HYPERVISOR: exec_cmd: vm delete R3 
+Mar 25 17:39:44.613 VM: VM R3 destroyed.
+Mar 25 17:39:44.617 HYPERVISOR: exec_cmd: hypervisor stop 
+Mar 25 17:39:44.685 HYPERVISOR: Stopped.
+Mar 25 17:39:44.686 GENERAL: reset done.

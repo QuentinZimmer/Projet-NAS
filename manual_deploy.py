@@ -14,8 +14,9 @@ mappings = {
     'R8': ('e7715d81-8039-4743-8c72-7e193b252613', 'i8_startup-config.cfg'),
 }
 
-configs_dir = r'C:\Users\cpoud\GNS3\projects\NAS_automatique\BIG_automatique\BIG_automatique\configs_big_gen'
-dynamips_dir = r'C:\Users\cpoud\GNS3\projects\NAS_automatique\BIG_automatique\BIG_automatique\project-files\dynamips'
+base_dir = os.path.dirname(os.path.abspath(__file__))
+configs_dir = os.path.join(base_dir, 'configs_big_gen')
+dynamips_dir = os.path.join(base_dir, 'project-files', 'dynamips')
 
 for router, (uuid, cfgfile) in mappings.items():
     src = os.path.join(configs_dir, f'{router}.cfg')

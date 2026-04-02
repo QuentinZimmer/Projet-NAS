@@ -1,0 +1,37 @@
+Mar 25 11:52:56.019 HYPERVISOR: Release 0.2.17-x86/Windows (tag 2017072410)
+Mar 25 11:52:56.021 HYPERVISOR: Started on IP = localhost, TCP port = 50197.
+Mar 25 11:52:56.514 HYPERVISOR: exec_cmd: hypervisor version 
+Mar 25 11:52:56.516 HYPERVISOR: exec_cmd: hypervisor working_dir C:\Users\quent\Documents\INSA\TC\Projet-NASV2\project-files\dynamips 
+Mar 25 11:52:56.516 GENERAL: working_dir=C:\Users\quent\Documents\INSA\TC\Projet-NASV2\project-files\dynamips
+Mar 25 11:52:56.516 HYPERVISOR: exec_cmd: hypervisor working_dir C:\Users\quent\Documents\INSA\TC\Projet-NASV2\project-files\dynamips\e7715d81-8039-4743-8c72-7e193b252613 
+Mar 25 11:52:56.518 GENERAL: working_dir=C:\Users\quent\Documents\INSA\TC\Projet-NASV2\project-files\dynamips\e7715d81-8039-4743-8c72-7e193b252613
+Mar 25 11:52:56.519 HYPERVISOR: exec_cmd: vm create R8 8 c7200 
+Mar 25 11:52:56.521 VM: VM R8 created.
+Mar 25 11:52:56.523 HYPERVISOR: exec_cmd: vm set_con_tcp_port R8 5007 
+Mar 25 11:52:56.525 HYPERVISOR: exec_cmd: c7200 get_mac_addr R8 
+Mar 25 11:52:56.525 HYPERVISOR: exec_cmd: vm get_status R8 
+Mar 25 11:52:56.526 HYPERVISOR: exec_cmd: vm slot_add_binding R8 0 0 C7200-IO-FE 
+Mar 25 11:52:56.528 HYPERVISOR: exec_cmd: vm set_disk0 R8 0 
+Mar 25 11:52:56.530 HYPERVISOR: exec_cmd: vm set_exec_area R8 64 
+Mar 25 11:52:56.532 HYPERVISOR: exec_cmd: vm get_status R8 
+Mar 25 11:52:56.534 HYPERVISOR: exec_cmd: vm set_idle_pc R8 0x62cc41e8 
+Mar 25 11:52:56.535 HYPERVISOR: exec_cmd: vm set_ios R8 C:/Users/quent/GNS3/images/IOS/c7200-advipservicesk9-mz.152-4.S5.image 
+Mar 25 11:52:56.539 HYPERVISOR: exec_cmd: c7200 set_mac_addr R8 ca08.4658.0000 
+Mar 25 11:52:56.541 HYPERVISOR: exec_cmd: vm set_nvram R8 512 
+Mar 25 11:52:56.543 HYPERVISOR: exec_cmd: vm set_ram R8 512 
+Mar 25 11:52:56.544 HYPERVISOR: exec_cmd: vm get_status R8 
+Mar 25 11:52:56.546 HYPERVISOR: exec_cmd: vm slot_add_binding R8 1 0 PA-GE 
+Mar 25 11:52:56.548 HYPERVISOR: exec_cmd: vm get_status R8 
+Mar 25 11:52:56.548 HYPERVISOR: exec_cmd: vm slot_add_binding R8 2 0 PA-GE 
+Mar 25 11:52:56.551 HYPERVISOR: exec_cmd: vm get_status R8 
+Mar 25 11:52:56.551 HYPERVISOR: exec_cmd: vm slot_add_binding R8 3 0 PA-GE 
+Mar 25 11:53:10.528 HYPERVISOR: exec_cmd: nio create_udp udp-45131b10-3bb2-4c63-94c5-2135b8804da0 10034 127.0.0.1 10035 
+Mar 25 11:53:11.400 HYPERVISOR: exec_cmd: vm slot_add_nio_binding R8 1 0 udp-45131b10-3bb2-4c63-94c5-2135b8804da0 
+Mar 25 11:53:11.402 HYPERVISOR: exec_cmd: vm get_status R8 
+Mar 25 17:39:44.266 HYPERVISOR: exec_cmd: vm get_status R8 
+Mar 25 17:39:44.270 HYPERVISOR: exec_cmd: vm extract_config R8 
+Mar 25 17:39:44.271 HYPERVISOR: exec_cmd: vm delete R8 
+Mar 25 17:39:44.272 VM: VM R8 destroyed.
+Mar 25 17:39:44.277 HYPERVISOR: exec_cmd: hypervisor stop 
+Mar 25 17:39:44.685 HYPERVISOR: Stopped.
+Mar 25 17:39:44.686 GENERAL: reset done.
