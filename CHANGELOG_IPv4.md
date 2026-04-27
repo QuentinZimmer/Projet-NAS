@@ -76,7 +76,7 @@ Liens (145.0.0.0/16):
 ### Générer les configurations
 
 ```bash
-cd c:\Users\cpoud\GNS3\projects\NAS_automatique\BIG_automatique\BIG_automatique
+cd BIG_automatique
 python gen_configs_ipv4.py
 ```
 

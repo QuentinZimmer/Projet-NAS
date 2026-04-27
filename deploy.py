@@ -1,7 +1,9 @@
+import os
 from gns_config_bot import GNSConfigBot
 
-configs_gen_dir = r"C:\Users\cpoud\GNS3\projects\NAS_automatique\BIG_automatique\BIG_automatique\configs_big_gen"
-dynamips_dir = r"C:\Users\cpoud\GNS3\projects\NAS_automatique\BIG_automatique\BIG_automatique\project-files\dynamips"
+root_dir = os.path.dirname(os.path.abspath(__file__))
+configs_gen_dir = os.path.join(root_dir, "configs_big_gen")
+dynamips_dir = os.path.join(root_dir, "project-files", "dynamips")
 
 bot = GNSConfigBot(configs_gen_dir, dynamips_dir)
 

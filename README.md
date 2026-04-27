@@ -43,11 +43,13 @@ BIG_AUTOMATIQUE/
 
 ## Prérequis
 
-Adapter les chemins dans `deploy.py` :
+Le script `deploy.py` utilise désormais des chemins relatifs basés sur son propre répertoire :
 ```python
-configs_gen_dir = r"C:\Users\TON_USER\GNS3\projects\NAS_automatique\BIG_automatique\BIG_automatique\configs_big_gen"
-dynamips_dir = r"C:\Users\TON_USER\GNS3\projects\NAS_automatique\BIG_automatique\BIG_automatique\project-files\dynamips"
+root_dir = os.path.dirname(os.path.abspath(__file__))
+configs_gen_dir = os.path.join(root_dir, "configs_big_gen")
+dynamips_dir = os.path.join(root_dir, "project-files", "dynamips")
 ```
+Assurez-vous de lancer les commandes depuis la racine du projet (`BIG_AUTOMATIQUE/`).
 
 ## Commandes de déploiement
 
